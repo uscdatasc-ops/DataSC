@@ -61,6 +61,12 @@
             letter-spacing: 0.5px;
         }
 
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
         .navigation {
             display: flex;
             gap: 30px;
@@ -77,6 +83,27 @@
 
         .nav-link:hover {
             opacity: 0.7;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: #f0f0f0;
+            border: 2px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            background: rgba(74, 144, 226, 0.1);
+            border-color: #4A90E2;
         }
 
         /* Full screen sections */
@@ -372,9 +399,19 @@
                 padding: 20px;
             }
 
+            .header-right {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
             .navigation {
                 gap: 20px;
                 flex-wrap: wrap;
+            }
+
+            .logo {
+                order: -1;
+                margin-bottom: 10px;
             }
 
             .section {
@@ -382,7 +419,7 @@
             }
 
             .hero-section {
-                padding-top: 100px;
+                padding-top: 120px;
             }
 
             .hero-title {
@@ -411,6 +448,12 @@
                 padding: 15px;
             }
 
+            .header-right {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+
             .navigation {
                 flex-direction: column;
                 gap: 10px;
@@ -426,7 +469,7 @@
             }
 
             .hero-section {
-                padding-top: 80px;
+                padding-top: 100px;
             }
 
             .eboard-cell {
@@ -445,12 +488,15 @@
     <!-- Fixed Header -->
     <header class="header">
         <div class="club-name">USC'S PREMIER DATA SCIENCE CLUB</div>
-        <nav class="navigation">
-            <a href="#info" class="nav-link">Info</a>
-            <a href="#team" class="nav-link">Team</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <a href="https://form.jotform.com/252057888227063" class="nav-link">Apply</a>
-        </nav>
+        <div class="header-right">
+            <nav class="navigation">
+                <a href="#info" class="nav-link">Info</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://form.jotform.com/252057888227063" class="nav-link">Apply</a>
+            </nav>
+            <img src="unnamed.png" alt="DataSC Logo" class="logo">
+        </div>
     </header>
 
     <!-- Section 1: Hero -->
@@ -595,7 +641,7 @@
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
+                if (targetId.startsWith('#') && targetId !== '#') {
                     const targetSection = document.querySelector(targetId);
                     if (targetSection) {
                         targetSection.scrollIntoView({ behavior: 'smooth' });
